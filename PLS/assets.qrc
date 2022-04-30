@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>assets/cpp.png</file>
+        <file>assets/java.png</file>
+        <file>assets/python.png</file>
+        <file>assets/vscode.png</file>
+        <file>assets/sublime.png</file>
+        <file>assets/recommended2.png</file>
+        <file>assets/atom.png</file>
+        <file>assets/github.png</file>
+        <file>assets/mail.png</file>
+        <file>assets/braces.png</file>
+        <file>assets/gear.png</file>
+        <file>assets/logo1.png</file>
+    </qresource>
+</RCC>
