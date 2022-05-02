@@ -3,6 +3,11 @@
 #include "vsinstall.h"
 #include "sublimeinstall.h"
 #include "atominstall.h"
+#include <QMessageBox>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
+#include <QEventLoop>
 
 editors::editors(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +22,20 @@ editors::editors(QWidget *parent) :
 editors::~editors()
 {
     delete ui;
+}
+
+bool editors::checkInternet()
+{
+    QNetworkAccessManager nam;
+    QNetworkRequest req(QUrl("http://www.google.com"));
+    QNetworkReply* reply = nam.get(req);
+    QEventLoop loop;
+    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+    if (reply->bytesAvailable())
+        return true;
+    else
+        return false;
 }
 
 void editors::on_vscode_clicked()
@@ -58,24 +77,42 @@ void editors::on_atom_clicked()
 
 void editors::on_vselect_clicked()
 {
-    vsinstall vscode;
-    vscode.setModal(true);
-    vscode.exec();
+    if(checkInternet() == true)
+    {
+        vsinstall vscode;
+        vscode.setModal(true);
+        vscode.exec();
+    }
+    else{
+        QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
+    }
 }
 
 
 void editors::on_sselect_clicked()
 {
-    sublimeinstall sublime;
-    sublime.setModal(true);
-    sublime.exec();
+    if(checkInternet() == true)
+    {
+        sublimeinstall sublime;
+        sublime.setModal(true);
+        sublime.exec();
+    }
+    else{
+        QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
+    }
 }
 
 
 void editors::on_aselect_clicked()
 {
-    atominstall atom;
-    atom.setModal(true);
-    atom.exec();
+    if(checkInternet() == true)
+    {
+        atominstall atom;
+        atom.setModal(true);
+        atom.exec();
+    }
+    else{
+        QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
+    }
 }
 

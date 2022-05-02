@@ -16,6 +16,8 @@ public:
     ~editors();
 
 private slots:
+    bool checkInternet();
+
     void on_vscode_clicked();
 
     void on_sublime_clicked();

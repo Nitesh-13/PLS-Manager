@@ -13,6 +13,7 @@ SOURCES += \
     atominstall.cpp \
     cppselect.cpp \
     editors.cpp \
+    github.cpp \
     javaselect.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     atominstall.h \
     cppselect.h \
     editors.h \
+    github.h \
     javaselect.h \
     mainwindow.h \
     pythonselect.h \
@@ -34,6 +36,7 @@ FORMS += \
     atominstall.ui \
     cppselect.ui \
     editors.ui \
+    github.ui \
     javaselect.ui \
     mainwindow.ui \
     pythonselect.ui \
