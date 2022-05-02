@@ -4,6 +4,10 @@
 #include "cppselect.h"
 #include "javaselect.h"
 #include "pythonselect.h"
+#include "github.h"
+#include "atominstall.h"
+#include "sublimeinstall.h"
+#include "vsinstall.h"
 #include <QDesktopServices>
 #include <QUrl>
 #include <QMessageBox>
@@ -74,14 +78,12 @@ void MainWindow::on_pselect_clicked()
     ui->java->hide();
 }
 
-
 void MainWindow::on_editors_clicked()
 {
     editors editors;
     editors.setModal(true);
     editors.exec();
 }
-
 
 void MainWindow::on_cpp_clicked()
 {
@@ -96,7 +98,6 @@ void MainWindow::on_cpp_clicked()
     }
 }
 
-
 void MainWindow::on_actionC_C_triggered()
 {
     if(checkInternet() == true)
@@ -109,7 +110,6 @@ void MainWindow::on_actionC_C_triggered()
         QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
     }
 }
-
 
 void MainWindow::on_java_clicked()
 {
@@ -124,7 +124,6 @@ void MainWindow::on_java_clicked()
     }
 }
 
-
 void MainWindow::on_actionJava_triggered()
 {
     if(checkInternet() == true)
@@ -137,7 +136,6 @@ void MainWindow::on_actionJava_triggered()
         QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
     }
 }
-
 
 void MainWindow::on_actionPython_triggered()
 {
@@ -152,7 +150,6 @@ void MainWindow::on_actionPython_triggered()
     }
 }
 
-
 void MainWindow::on_python_clicked()
 {
     if(checkInternet() == true)
@@ -166,35 +163,70 @@ void MainWindow::on_python_clicked()
     }
 }
 
-
 void MainWindow::on_actionExit_triggered()
 {
     QApplication::exit();
 }
 
-
 void MainWindow::on_actionGithub_Repo_triggered()
 {
-    QString repolink = "https://github.com/Nitesh-13/Language-Compiler-Setup";
+    QString repolink = "https://github.com/Nitesh-13/PLS-Manager";
     QDesktopServices::openUrl(QUrl(repolink));
 }
 
-
 void MainWindow::on_actionGithub_Profile_triggered()
 {
-    QString profilelink = "https://github.com/Nitesh-13";
-    QDesktopServices::openUrl(QUrl(profilelink));
+    github profiles;
+    profiles.setModal(true);
+    profiles.exec();
 }
 
-
-void MainWindow::on_actionAbout_Me_triggered()
+void MainWindow::on_reportBug_triggered()
 {
-    QMessageBox::information(this,tr("About Me"),tr("I am Nitesh, a coding enthusiast and a CSE Student"));
+    QString issues = "https://github.com/Nitesh-13/PLS-Manager/issues";
+    QDesktopServices::openUrl(QUrl(issues));
 }
-
 
 void MainWindow::on_actionContact_Me_triggered()
 {
-    QMessageBox::information(this,tr("Contact Me"),tr("Contact me at niteshmali132002@gmail.com"));
+    QMessageBox::information(this,tr("Contact Us"),tr("Contact us at niteshmali132002@gmail.com or yashrajesh71@gmail.com."));
 }
 
+void MainWindow::on_actionVSCode_triggered()
+{
+    if(checkInternet() == true)
+    {
+        vsinstall vscode;
+        vscode.setModal(true);
+        vscode.exec();
+    }
+    else{
+        QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
+    }
+}
+
+void MainWindow::on_actionSublime_triggered()
+{
+    if(checkInternet() == true)
+    {
+        sublimeinstall sublime;
+        sublime.setModal(true);
+        sublime.exec();
+    }
+    else{
+        QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
+    }
+}
+
+void MainWindow::on_actionAtom_triggered()
+{
+    if(checkInternet() == true)
+    {
+        atominstall atom;
+        atom.setModal(true);
+        atom.exec();
+    }
+    else{
+        QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
+    }
+}

@@ -45,9 +45,15 @@ private slots:
 
     void on_actionGithub_Profile_triggered();
 
-    void on_actionAbout_Me_triggered();
+    void on_reportBug_triggered();
 
     void on_actionContact_Me_triggered();
+
+    void on_actionVSCode_triggered();
+
+    void on_actionSublime_triggered();
+
+    void on_actionAtom_triggered();
 
 private:
     Ui::MainWindow *ui;

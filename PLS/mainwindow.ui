@@ -356,6 +356,7 @@
       <property name="font">
        <font>
         <family>Open Sans</family>
+        <pointsize>11</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -625,8 +626,17 @@ border-radius : 5px;</string>
      <addaction name="separator"/>
      <addaction name="actionPython"/>
     </widget>
+    <widget class="QMenu" name="menuCode_Editors">
+     <property name="title">
+      <string>Code Editors</string>
+     </property>
+     <addaction name="actionVSCode"/>
+     <addaction name="actionSublime"/>
+     <addaction name="actionAtom"/>
+    </widget>
     <addaction name="actionGithub_Repo"/>
     <addaction name="menuLanguages"/>
+    <addaction name="menuCode_Editors"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -636,7 +646,7 @@ border-radius : 5px;</string>
     </property>
     <addaction name="actionGithub_Profile"/>
     <addaction name="separator"/>
-    <addaction name="actionAbout_Me"/>
+    <addaction name="reportBug"/>
     <addaction name="actionContact_Me"/>
    </widget>
    <addaction name="menuSetup"/>
@@ -685,17 +695,47 @@ border-radius : 5px;</string>
   </action>
   <action name="actionGithub_Profile">
    <property name="text">
-    <string>Github Profile</string>
+    <string>Github Profiles</string>
+   </property>
+   <property name="toolTip">
+    <string>Github Profiles</string>
    </property>
   </action>
-  <action name="actionAbout_Me">
+  <action name="reportBug">
    <property name="text">
-    <string>About Me</string>
+    <string>Report Bug...</string>
    </property>
   </action>
   <action name="actionContact_Me">
    <property name="text">
-    <string>Contact Me</string>
+    <string>Contact</string>
+   </property>
+  </action>
+  <action name="actionVSCode">
+   <property name="icon">
+    <iconset resource="assets.qrc">
+     <normaloff>:/assets/assets/vscode.png</normaloff>:/assets/assets/vscode.png</iconset>
+   </property>
+   <property name="text">
+    <string>VSCode</string>
+   </property>
+  </action>
+  <action name="actionSublime">
+   <property name="icon">
+    <iconset resource="assets.qrc">
+     <normaloff>:/assets/assets/sublime.png</normaloff>:/assets/assets/sublime.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sublime</string>
+   </property>
+  </action>
+  <action name="actionAtom">
+   <property name="icon">
+    <iconset resource="assets.qrc">
+     <normaloff>:/assets/assets/atom.png</normaloff>:/assets/assets/atom.png</iconset>
+   </property>
+   <property name="text">
+    <string>Atom</string>
    </property>
   </action>
  </widget>

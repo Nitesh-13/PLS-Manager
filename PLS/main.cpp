@@ -2,6 +2,8 @@
 
 #include <QApplication>
 #include <QFile>
+#include <QSplashScreen>
+#include <QTimer>
 
 int main(int argc, char *argv[])
 {
