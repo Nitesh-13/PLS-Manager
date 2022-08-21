@@ -2,6 +2,11 @@
 #define EDITORS_H
 
 #include <QDialog>
+#include <windows.h>
+#include <QMessageBox>
+#include <QtNetwork>
+#include <QEventLoop>
+#include "proceedtab.h"
 
 namespace Ui {
 class editors;

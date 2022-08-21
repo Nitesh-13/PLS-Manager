@@ -2,6 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "editors.h"
+#include "github.h"
+#include "proceedtab.h"
+#include <QDesktopServices>
+#include <QUrl>
+#include <QMessageBox>
+#include <QtWidgets>
+#include <QtNetwork>
+#include <QEventLoop>
 
 
 QT_BEGIN_NAMESPACE

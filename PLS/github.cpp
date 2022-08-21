@@ -1,6 +1,5 @@
 #include "github.h"
 #include "ui_github.h"
-#include <QDesktopServices>
 
 github::github(QWidget *parent) :
     QDialog(parent),

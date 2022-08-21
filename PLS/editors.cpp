@@ -1,22 +1,21 @@
 #include "editors.h"
 #include "ui_editors.h"
-#include "vsinstall.h"
-#include "sublimeinstall.h"
-#include "atominstall.h"
-#include <QMessageBox>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkReply>
-#include <QEventLoop>
 
 editors::editors(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::editors)
 {
     ui->setupUi(this);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     ui->sselect->hide();
     ui->aselect->hide();
+    int installstatus = system("code --version");
+    if(installstatus != 0)
+    {
+        ui->installStatus->hide();
+    }
+    else{
+        ui->installStatus->show();
+    }
 }
 
 editors::~editors()
@@ -52,6 +51,7 @@ void editors::on_vscode_clicked()
 
 void editors::on_sublime_clicked()
 {
+    ui->installStatus->hide();
     ui->vselect->hide();
     ui->sselect->show();
     ui->aselect->hide();
@@ -64,6 +64,7 @@ void editors::on_sublime_clicked()
 
 void editors::on_atom_clicked()
 {
+    ui->installStatus->hide();
     ui->vselect->hide();
     ui->sselect->hide();
     ui->aselect->show();
@@ -79,7 +80,7 @@ void editors::on_vselect_clicked()
 {
     if(checkInternet() == true)
     {
-        vsinstall vscode;
+        proceedTab vscode(6,this);
         vscode.setModal(true);
         vscode.exec();
     }
@@ -93,7 +94,7 @@ void editors::on_sselect_clicked()
 {
     if(checkInternet() == true)
     {
-        sublimeinstall sublime;
+        proceedTab sublime(5,this);
         sublime.setModal(true);
         sublime.exec();
     }
@@ -107,7 +108,7 @@ void editors::on_aselect_clicked()
 {
     if(checkInternet() == true)
     {
-        atominstall atom;
+        proceedTab atom(4,this);
         atom.setModal(true);
         atom.exec();
     }

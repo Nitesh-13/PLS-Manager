@@ -1,28 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "editors.h"
-#include "cppselect.h"
-#include "javaselect.h"
-#include "pythonselect.h"
-#include "github.h"
-#include "atominstall.h"
-#include "sublimeinstall.h"
-#include "vsinstall.h"
-#include <QDesktopServices>
-#include <QUrl>
-#include <QMessageBox>
-#include <QtWidgets>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkReply>
-#include <QEventLoop>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     this->statusBar()->setSizeGripEnabled(false);
     this->statusBar()->hide();
     ui->java->hide();
@@ -89,9 +72,10 @@ void MainWindow::on_cpp_clicked()
 {
     if(checkInternet() == true)
     {
-        cppselect cpp;
+        proceedTab cpp(1,this);
         cpp.setModal(true);
         cpp.exec();
+
     }
     else{
         QMessageBox::critical(this,tr("Info"),tr("Not connected to Internet! Please connect and try again."));
@@ -102,7 +86,7 @@ void MainWindow::on_actionC_C_triggered()
 {
     if(checkInternet() == true)
     {
-        cppselect cpp;
+        proceedTab cpp(1,this);
         cpp.setModal(true);
         cpp.exec();
     }
@@ -115,7 +99,7 @@ void MainWindow::on_java_clicked()
 {
     if(checkInternet() == true)
     {
-        javaselect java;
+        proceedTab java(2,this);
         java.setModal(true);
         java.exec();
     }
@@ -128,7 +112,7 @@ void MainWindow::on_actionJava_triggered()
 {
     if(checkInternet() == true)
     {
-        javaselect java;
+        proceedTab java(2,this);
         java.setModal(true);
         java.exec();
     }
@@ -141,7 +125,7 @@ void MainWindow::on_actionPython_triggered()
 {
     if(checkInternet() == true)
     {
-        pythonselect python;
+        proceedTab python(3,this);
         python.setModal(true);
         python.exec();
     }
@@ -154,7 +138,7 @@ void MainWindow::on_python_clicked()
 {
     if(checkInternet() == true)
     {
-        pythonselect python;
+        proceedTab python(3,this);
         python.setModal(true);
         python.exec();
     }
@@ -196,7 +180,7 @@ void MainWindow::on_actionVSCode_triggered()
 {
     if(checkInternet() == true)
     {
-        vsinstall vscode;
+        proceedTab vscode(6,this);
         vscode.setModal(true);
         vscode.exec();
     }
@@ -209,7 +193,7 @@ void MainWindow::on_actionSublime_triggered()
 {
     if(checkInternet() == true)
     {
-        sublimeinstall sublime;
+        proceedTab sublime(5,this);
         sublime.setModal(true);
         sublime.exec();
     }
@@ -222,7 +206,7 @@ void MainWindow::on_actionAtom_triggered()
 {
     if(checkInternet() == true)
     {
-        atominstall atom;
+        proceedTab atom(4,this);
         atom.setModal(true);
         atom.exec();
     }

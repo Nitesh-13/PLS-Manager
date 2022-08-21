@@ -355,6 +355,27 @@
       <string>Install</string>
      </property>
     </widget>
+    <widget class="QLabel" name="installStatus">
+     <property name="geometry">
+      <rect>
+       <x>262</x>
+       <y>330</y>
+       <width>141</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <italic>true</italic>
+       <bold>true</bold>
+       <underline>true</underline>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="text">
+      <string>- Already Installed</string>
+     </property>
+    </widget>
     <zorder>recommended</zorder>
     <zorder>editorImage</zorder>
     <zorder>vselect</zorder>
@@ -362,6 +383,7 @@
     <zorder>frame_4</zorder>
     <zorder>sselect</zorder>
     <zorder>aselect</zorder>
+    <zorder>installStatus</zorder>
    </widget>
   </widget>
  </widget>

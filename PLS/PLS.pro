@@ -1,7 +1,4 @@
-QT       += core gui
-QT       += network
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui network widgets sql
 
 CONFIG += c++17
 
@@ -10,38 +7,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    atominstall.cpp \
-    cppselect.cpp \
+    downloader.cpp \
     editors.cpp \
     github.cpp \
-    javaselect.cpp \
     main.cpp \
     mainwindow.cpp \
-    pythonselect.cpp \
-    sublimeinstall.cpp \
-    vsinstall.cpp
+    proceedtab.cpp
 
 HEADERS += \
-    atominstall.h \
-    cppselect.h \
+    downloader.h \
     editors.h \
     github.h \
-    javaselect.h \
     mainwindow.h \
-    pythonselect.h \
-    sublimeinstall.h \
-    vsinstall.h
+    proceedtab.h
 
 FORMS += \
-    atominstall.ui \
-    cppselect.ui \
     editors.ui \
     github.ui \
-    javaselect.ui \
     mainwindow.ui \
-    pythonselect.ui \
-    sublimeinstall.ui \
-    vsinstall.ui
+    proceedtab.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
