@@ -20,7 +20,7 @@ Currently Supported Code Editors are
 
 ## Installation
 
-Download the [installer for windows](https://github.com/Nitesh-13/PLS-Manager/releases/tag/v1.0)  to install PLS Manager.
+Download the [installer for windows](https://github.com/Nitesh-13/PLS-Manager/releases/tag/v1.2)  to install PLS Manager.
 
 ## Getting Started with this Project
 
