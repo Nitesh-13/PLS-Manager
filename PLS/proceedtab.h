@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QUrl>
 #include <QProcess>
+#include <windows.h>
 #include <QMessageBox>
 #include <QDir>
 #include "downloader.h"
@@ -18,6 +19,7 @@ class proceedTab : public QDialog
 
 public:
     explicit proceedTab(int envId,QWidget *parent = nullptr);
+    void setupPath();
     ~proceedTab();
 
 private slots:

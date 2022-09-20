@@ -32,6 +32,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+VERSION = 1.2.0
+
 RESOURCES += \
     assets.qrc
 

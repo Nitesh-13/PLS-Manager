@@ -36,6 +36,20 @@ proceedTab::proceedTab(int envId,QWidget *parent) :
     QObject::connect(install, &downloader::filename,this, &proceedTab::setFilename);
 }
 
+void proceedTab::setupPath()
+{
+    switch (envId) {
+    case 1:
+        system("setx path \"%path%;C:\\LimeLight\\MinGW\\bin\" /m");
+        break;
+    case 2:
+        system("setx path \"%path%;C:\\LimeLight\\Java\\jdk-17.0.1\\bin\" /m");
+        break;
+    default:
+        break;
+    }
+}
+
 proceedTab::~proceedTab()
 {
     delete ui;
@@ -50,13 +64,13 @@ void proceedTab::on_btnProceed_clicked()
     if(envId == 1)
     {
         ui->proceedInfo->setText("C/C++ Development Environment is being downloaded and installed...");
-        link = QUrl("https://download948.mediafire.com/9vgaxmj6aueg/4md4dozig7psp9u/MinGW.exe");
+        link = QUrl("https://cdn-132.anonfiles.com/T4bbUb87y1/180c0afe-1663660960/MinGW.exe");
         install->append(link);
     }
     else if(envId == 2)
     {
         ui->proceedInfo->setText("Java Development Environment is being downloaded and installed...");
-        link = QUrl("https://download1483.mediafire.com/xq3qtp07qjqg/5vliblg5y5hejh5/Java.exe");
+        link = QUrl("https://cdn-102.anonfiles.com/fbcdUb80ya/de6cc2f6-1663660983/Java.exe");
         install->append(link);
     }
     else if(envId == 3)
@@ -122,6 +136,7 @@ void proceedTab::executeInstaller()
 
 void proceedTab::finishedDownloading()
 {
+    setupPath();
     QFile myfile;
     if(myfile.exists(filename))
     {
